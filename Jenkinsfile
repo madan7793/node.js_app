@@ -23,5 +23,11 @@ pipeline {
                sh 'docker push $DOCKER_HUB_REPO:latest'
            }
        }
+       stage('container') {
+           steps {
+                 echo 'creating Container'
+                 sh 'docker run -itd 53514815c898 -p 8082:3000'
+           }
+       }
    }
 }
